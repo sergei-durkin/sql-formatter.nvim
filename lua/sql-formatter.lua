@@ -43,7 +43,7 @@ local function get_root(bufnr, ftype)
   return tree:root()
 end
 
-local run_formatter = function(line, ftype)
+local function run_formatter(line, ftype)
   local cmd = "sql-formatter"
   local c = {
     dialect = formatter.config[ftype].dialect,
@@ -61,7 +61,7 @@ local run_formatter = function(line, ftype)
   return vim.split(result, "\n")
 end
 
-local format = function(bufnr)
+local function format(bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
   local ftype = vim.bo[bufnr].filetype
   
