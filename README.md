@@ -44,6 +44,8 @@ require("sql-formatter").setup({
     keywordCase = "upper",
   },
 })
+
+vim.api.nvim_set_keymap("n", "<leader>fs", ":FormatSql<CR>", { noremap = true, silent = true })
 ```
 
 ### 🔥 Credits
