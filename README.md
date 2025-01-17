@@ -2,7 +2,8 @@
 
 ### 📺 Demo
 
-![demo](./img/demo.mp4)
+
+https://github.com/user-attachments/assets/68817213-a10c-4ab7-811b-389d4c5e7f4b
 
 ### ⚙️ Installation
 
