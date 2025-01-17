@@ -2,8 +2,7 @@
 
 ### 📺 Demo
 
-
-https://github.com/user-attachments/assets/68817213-a10c-4ab7-811b-389d4c5e7f4b
+https://github.com/user-attachments/assets/0e0f3ad7-f92c-44e5-bfb7-508c91c90bee
 
 ### ⚙️ Installation
 
