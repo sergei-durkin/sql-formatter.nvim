@@ -64,16 +64,15 @@ end
 local function format(bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
   local ftype = vim.bo[bufnr].filetype
-  
+
   if ftype ~= "go" and ftype ~= "php" then
-    print("Can only format SQL in Go files")
+    print("Formatter not supported for this filetype")
     return
   end
-  
-  local root = get_root(bufnr, ftype)
-  local changes = {}
 
-  for id, node in formatter.config[ftype].parser:iter_captures(root, bufnr, 0, -1) do
+  local root = get_root(bufnr, ftype)
+
+  for _, node in formatter.config[ftype].parser:iter_captures(root, bufnr, 0, -1) do
     local range = { node:range() }
     local indentation = string.rep(formatter.config[ftype].separator, formatter.config[ftype].tabWidth)
 
@@ -107,7 +106,7 @@ formatter.setup = function(cfg)
   formatter.config = vim.tbl_deep_extend("force", formatter.config, cfg)
   vim.api.nvim_create_user_command("FormatSql", function() format() end, {})
 
-  for key, value in pairs(formatter.config) do
+  for key, _ in pairs(formatter.config) do
     formatter.config[key].separator = " "
     if formatter.config[key].useTabs then
       formatter.config[key].tabWidth = 1
